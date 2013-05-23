@@ -6,17 +6,20 @@ package bean;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  *
- * @author wieranata
+ * @author Mich
  */
 public class UserModel {
-    Connection connection = null;
-    PemilikKos pk = new PemilikKos();
+    private static Connection connection = null;
     Kos kos = new Kos();
     
     public UserModel() {
@@ -37,4 +40,50 @@ public class UserModel {
         }
     }
     
+    public void insertPemilikKos(PemilikKos pk) throws SQLException {
+        PreparedStatement stmt = null;
+        try {
+            connection.setAutoCommit(false);
+            String query = "insert into pemilikKos values (?,?,?,?,?)";
+            stmt = connection.prepareStatement(query);
+            stmt.setString(1, pk.getIdPemilik());
+            stmt.setString(2, pk.getNamaPemilik());
+            stmt.setString(3, pk.getAlamatPemilik());
+            stmt.setString(4, pk.getNoTelp());
+            stmt.setString(5, pk.getPassword());
+            stmt.executeUpdate();
+            connection.commit();
+        } catch (SQLException se) {
+            connection.rollback();
+            throw se;
+        } finally {
+            try {
+                connection.setAutoCommit(true);
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (Exception e) {
+                try {
+                    throw e;
+                } catch (Exception ex) {
+                    Logger.getLogger(UserModel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }
+    
+    public String getKodePemilikBaru() throws SQLException {
+        ResultSet rset = null;
+        String tangkepID=null;
+        
+        String sql = "SELECT MAX(idpemilik) FROM PemilikKos";
+        Statement stat = connection.createStatement();
+
+        rset = stat.executeQuery(sql);
+        while (rset.next()) {
+            tangkepID = rset.getString(1);
+        }
+        connection.close();
+        return tangkepID;
+    }
 }

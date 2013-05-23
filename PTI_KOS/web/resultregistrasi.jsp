@@ -1,13 +1,12 @@
-<%--
-    Document   : insertkos_pemilik
-    Created on : May 20, 2013, 5:25:08 PM
-    Author     : wieranata
+<%-- 
+    Document   : resultregistrasi
+    Created on : May 23, 2013, 11:58:36 PM
+    Author     : Mich
 --%>
 
+<%@page import="bean.PemilikKos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
-
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta name="keywords" content="" />
@@ -68,7 +67,6 @@
 
                     </div>
                     <div id="content">
-                        <form action="resultregistrasi.jsp" method="post">
                             <table width="900px">
                                 <tr>
                                     <td width="118px" align="left">
@@ -82,8 +80,8 @@
                                                 id = "1";
                                                 out.print(id);
                                             } else {
-                                                int bantu = 0;
-                                                bantu = Integer.parseInt(id) + 1;
+                                                int bantu = Integer.parseInt(id) + 1;
+                                                id = Integer.toString(bantu);
                                                 out.print(Integer.toString(bantu));
                                             }
                                         %>
@@ -94,7 +92,10 @@
                                         Nama Pemilik
                                     </td>
                                     <td align="left">
-                                        <input class="text" name="nama" size="32" maxlength="90" /><br>
+                                        <%
+                                        String nama = request.getParameter("nama");
+                                        out.print(nama);
+                                        %>
                                     </td>
                                 </tr>
                                 <tr>
@@ -102,7 +103,10 @@
                                         Alamat Pemilik
                                     </td>
                                     <td align="left">
-                                        <input class="text" name="alamat" size="90" maxlength="90" /><br>
+                                        <%
+                                        String alamat = request.getParameter("alamat");
+                                        out.print(alamat);
+                                        %>
                                     </td>
                                 </tr>
                                 <tr>
@@ -110,25 +114,18 @@
                                         No Telp
                                     </td>
                                     <td align="left">
-                                        <input class="text" name="noTelp" size="32" maxlength="100" />
+                                        <%
+                                        String noTelp = request.getParameter("noTelp");
+                                        String password = request.getParameter("pw");
+                                        out.print(noTelp);
+                                        bean.UserModel um2 = new bean.UserModel();
+                                        bean.PemilikKos pk = new PemilikKos(id, nama, alamat, noTelp, password);
+                                        um2.insertPemilikKos(pk);
+                                        %>
                                     <td>
                                 </tr>
-                                <tr>
-                                    <td width="118px" align="left">
-                                        Password
-                                    </td>
-                                    <td align="left">
-                                        <input type="password" name="pw" size="32" maxlength="100" />
-                                    <td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input class="button" type="submit" value="Tambah Pemilik" />
-                                    </td>
-                                </tr>
-
+                                    
                             </table>
-                        </form>
 
                     </div>
                     <br class="clear" />

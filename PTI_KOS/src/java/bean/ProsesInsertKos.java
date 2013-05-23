@@ -27,7 +27,7 @@ public class ProsesInsertKos extends HttpServlet {
 //        System.out.println(tgl);
         String AlamatKos = request.getParameter("alamatkos");
         String Fasilitas = request.getParameter("fasilitas");
-           
+
         String GoogleMaps = request.getParameter("googlemap");
         String Status = request.getParameter("status");
         String Kategori = request.getParameter("kategori");
