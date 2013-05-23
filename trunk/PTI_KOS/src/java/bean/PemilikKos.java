@@ -15,6 +15,13 @@ public class PemilikKos {
     private String noTelp;
     private String password;
 
+    public PemilikKos(String id,String nama,String alamat,String noTelp,String password){
+        this.idPemilik = id;
+        this.namaPemilik = nama;
+        this.alamatPemilik = alamat;
+        this.noTelp = noTelp;
+        this.password = password;
+    }
     /**
      * @return the idPemilik
      */
