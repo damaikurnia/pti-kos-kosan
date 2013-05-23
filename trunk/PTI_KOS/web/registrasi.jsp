@@ -1,6 +1,6 @@
-<%-- 
-    Document   : delete
-    Created on : May 20, 2013, 1:54:10 PM
+<%--
+    Document   : insertkos_pemilik
+    Created on : May 20, 2013, 5:25:08 PM
     Author     : wieranata
 --%>
 
@@ -8,25 +8,12 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-
-	Design by Free CSS Templates
-	http://www.freecsstemplates.org
-	Released for free under a Creative Commons Attribution License
-
-	Name       : Serious Face
-	Version    : 1.0
-	Released   : 20130222
-
--->
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta name="keywords" content="" />
         <meta name="description" content="" />
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>Delete</title>
+		<title>Registrasi Pemilik Baru</title>
 
 		<link rel="stylesheet" type="text/css" href="style.css" />
     </head>
@@ -42,27 +29,22 @@
 					<div align="right">
 						<form action="#" method="post">
 
-							<a href="#">Logout</a>
+							<a href="index.jsp">Kembali ke halaman awal</a>
 
 						</form>
 					</div>
 					<div id="nav">
 						<ul>
 							<li>
-								<a href="admin.jsp">Home Admin</a>
+								<a href="index.jsp">Home</a>
 							</li>
 							<li>
-								<a href="insertkos_admin.jsp">Insert Kos</a>
-							</li>
-							<li>
-								<a href="#">Update Kos</a>
+								<a href="#">About</a>
 							</li>
 							<li class="last">
-								<a href="sms.jsp">Kirim SMS</a>
+								<a href="#">Contact</a>
 							</li>
-							<li class="first active">
-								<a href="deletekos_admin.jsp">Delete Kos</a>
-							</li>
+                                                        <li align="right"></li>
 						</ul>
 						<br class="clear" />
 					</div>
@@ -86,22 +68,49 @@
 
 					</div>
 					<div id="content">
-						Cari berdasarkan <select name="search">
-											<option value="id">id kos</option>
-											<option value="nama">nama kos</option>
-									</select><br>
-						<input class="text" name="search" size="32" maxlength="64" /><input class="button" type="submit" value="Cari" />
+						<form action="#" method="post">
+						<table width="900px">
+							<tr>
+								<td width="118px" align="left">
+									ID pemilik
+								</td>
+								<td align="left">
+									111
+								</td>
+							</tr>
+							<tr>
+								<td width="118px" align="left">
+									Nama Pemilik
+								</td>
+								<td align="left">
+									Surono
+								</td>
+							</tr>
+							<tr>
+								<td width="118px" align="left">
+									Alamat Pemilik
+								</td>
+								<td align="left">
+									<input class="text" name="nama" size="32" maxlength="90" /><br>
+								</td>
+							</tr>
+							<tr>
+								<td width="118px" align="left">
+									Nomor Telepon Pemilik
+								</td>
+								<td align="left">
+									<input class="text" name="alamatkos" size="90" maxlength="100" />
+								<td>
+							</tr>
 
-						<br><br>
-						<table border="1">
-							<tr><td width="50px" align="center">ID Kos</td>
-								<td width="400px" align="center">Nama Kos</td>
-								<td width="200px" align="center">Action</td>
-							<tr><td width="50px" align="center">111 </td>
-								<td width="400px" align="center">Melati </td>
-								<td width="200px" align="center"><a href="#">delete</a> </td>
+
+								<td>
+									<input class="button" type="submit" value="Insert" />
+								</td>
+							</tr>
+
 						</table>
-						<input class="button" type="submit" value="View all" />
+						</form>
 
 					</div>
 					<br class="clear" />
@@ -113,4 +122,3 @@
 		</div>
     </body>
 </html>
-

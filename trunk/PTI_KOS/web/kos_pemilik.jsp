@@ -1,6 +1,6 @@
-<%-- 
-    Document   : insertkos
-    Created on : May 20, 2013, 1:57:55 PM
+<%--
+    Document   : insertkos_pemilik
+    Created on : May 20, 2013, 5:25:08 PM
     Author     : wieranata
 --%>
 
@@ -8,19 +8,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-
-	Design by Free CSS Templates
-	http://www.freecsstemplates.org
-	Released for free under a Creative Commons Attribution License
-
-	Name       : Serious Face
-	Version    : 1.0
-	Released   : 20130222
-
--->
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta name="keywords" content="" />
@@ -49,19 +36,19 @@
 					<div id="nav">
 						<ul>
 							<li>
-								<a href="admin.jsp">Home Admin</a>
+								<a href="pemilik.jsp">Home Pemilik</a>
 							</li>
 							<li class="first active">
-								<a href="insertkos_admin.jsp">Tambah Kos</a>
+								<a href="kos_pemilik.jsp">Kos</a>
+							</li>
+                                                        <li>
+								<a href="insertkos_pemilik.jsp">Tambah Kos</a>
 							</li>
 							<li>
 								<a href="#">Update Kos</a>
 							</li>
-							<li>
-								<a href="sms.jsp">Kirim SMS</a>
-							</li>
 							<li class="last">
-								<a href="deletekos_admin.jsp">Delete Kos</a>
+								<a href="deletekos_pemilik.jsp">Delete Kos</a>
 							</li>
 						</ul>
 						<br class="clear" />
@@ -185,4 +172,3 @@
 		</div>
     </body>
 </html>
-
