@@ -14,6 +14,10 @@ public class PemilikKos {
     private String alamatPemilik;
     private String noTelp;
     private String password;
+    
+    public PemilikKos(){
+        
+    }
 
     public PemilikKos(String id,String nama,String alamat,String noTelp,String password){
         this.idPemilik = id;

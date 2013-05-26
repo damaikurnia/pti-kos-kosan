@@ -29,6 +29,8 @@
 		<title>Makelar Kos</title>
 
 		<link rel="stylesheet" type="text/css" href="style.css" />
+                <script type="text/javascript" src="jquery/jquery-1.4.2.min.js"></script>
+                <script type="text/javascript" src="jquery/jquery.gallerax-0.2.js"></script>
     </head>
     <body>
 		<div id="bg">
@@ -39,14 +41,16 @@
 							<a href="#">Sikosmaw</a>
 						</h1>
 					</div>
+                                    <div id ="button">
 					<div align="right">
-						<form action="" method="post">
-							Username<input class="text" name="username" size="32" maxlength="64" /><br>
-							Password<input type="password" name="pw" size="32" maxlength="64" /><br>
+						<form action="LoginServlet" method="post">
+							Username<input class="text" name="idpemilik" size="32" maxlength="64" /><br>
+							Password<input type="password" name="password" size="32" maxlength="64" /><br>
 							<a href="registrasi.jsp">Daftar?</a>&nbsp&nbsp<input class="button" type="submit" value="Login" />
 
 						</form>
 					</div>
+                                        </div>
 					<div id="nav">
 						<ul>
 							<li class="first active">

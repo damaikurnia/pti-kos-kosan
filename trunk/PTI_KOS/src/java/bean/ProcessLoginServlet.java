@@ -25,17 +25,17 @@ public class ProcessLoginServlet extends HttpServlet {
 //     * @throws ServletException if a servlet-specific error occurs
 //     * @throws IOException if an I/O error occurs
 //     */
-//    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException {
-//        response.setContentType("text/html;charset=UTF-8");
-//        PrintWriter out = response.getWriter();
-//
-//        String userName = request.getParameter("username");
-//        String password = request.getParameter("password");
-//
-//        UserModel Model = new UserModel();
-//        Petugas user = Model.getUser(userName, password);
-//        Dosen ds = Model.getDosen(userName, password);
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+
+        String idpemilik = request.getParameter("idpemilik");
+        String password = request.getParameter("password");
+
+        UserModel Model = new UserModel();
+//        Admin user = Model.getUser(userName, password);
+        PemilikKos pk = Model.getPemilikKos(idpemilik, password);
 //        if (user.getUsername() != null) {
 //
 //            out.println("Login Berhasil, Anda Login sebagai " + user.getUsername());
@@ -43,21 +43,21 @@ public class ProcessLoginServlet extends HttpServlet {
 //            session.setAttribute("username", user.getUsername());
 //            session.setAttribute("user", user);
 //            response.sendRedirect("homePetugas.jsp");
-//            //            RequestDispatcher rdp = request.getRequestDispatcher("home");
-////            rdp.forward(request, response);
-//        } else if (ds.getUsername() != null) {
-//            out.println("Login Berhasil, Anda Login sebagai " + ds.getUsername());
-//            HttpSession session = request.getSession(true);
-//            session.setAttribute("username", ds.getUsername());
+            //            RequestDispatcher rdp = request.getRequestDispatcher("home");
+//            rdp.forward(request, response);
+        if (pk.getIdPemilik()!= null) {
+            out.println("Login Berhasil, Anda Login sebagai " + pk.getIdPemilik());
+            HttpSession session = request.getSession(true);
+            session.setAttribute("idkos", pk.getIdPemilik());
 //            session.setAttribute("user", ds);
-//            response.sendRedirect("homeDosen.jsp");
-//            //            RequestDispatcher rdp = request.getRequestDispatcher("home");
-////            rdp.forward(request, response);
-//        } else {
-//            response.sendRedirect("homeLogin.jsp?error=yes");
-//
-//        }
-//    }
+            response.sendRedirect("home pemilik.jsp");
+            //            RequestDispatcher rdp = request.getRequestDispatcher("home");
+//            rdp.forward(request, response);
+        } else {
+            response.sendRedirect("index.jsp?error=yes");
+
+        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
