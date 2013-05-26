@@ -160,7 +160,7 @@
 									Google Map
 								</td>
 								<td align="left">
-							<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=d&amp;source=s_d&amp;saddr=Kampus+III+USD+paingan+%40-7.753432,110.421782&amp;daddr=Kos+Melati+%40-7.757833,110.423809&amp;hl=en&amp;geocode=FSixif8dFueUBg%3BFfefif8dAe-UBg&amp;aq=&amp;sll=-7.755005,110.422769&amp;sspn=0.005379,0.009238&amp;mra=ls&amp;ie=UTF8&amp;ll=-7.755005,110.422769&amp;spn=0.004825,0.001972&amp;t=m&amp;output=embed"></iframe><br /><small>View <a href="https://maps.google.com/maps?f=d&amp;source=embed&amp;saddr=Kampus+III+USD+paingan+%40-7.753432,110.421782&amp;daddr=Kos+Melati+%40-7.757833,110.423809&amp;hl=en&amp;geocode=FSixif8dFueUBg%3BFfefif8dAe-UBg&amp;aq=&amp;sll=-7.755005,110.422769&amp;sspn=0.005379,0.009238&amp;mra=ls&amp;ie=UTF8&amp;ll=-7.755005,110.422769&amp;spn=0.004825,0.001972&amp;t=m" style="color:#0000FF;text-align:left">Kampus III Paingan</a> in a larger map</small>
+							<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://goo.gl/maps/NOYdQ"></iframe><br /><small>View <a href="http://goo.gl/maps/NOYdQ" style="color:#0000FF;text-align:left">Kampus III Paingan</a> in a larger map</small>
 								</td>
 							</tr>
 							<tr>

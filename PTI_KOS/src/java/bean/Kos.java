@@ -9,15 +9,28 @@ package bean;
  * @author Mich
  */
 public class Kos {
+
     private String idKos;
     private String namaKos;
     private String alamatKos;
     private String Fasilitas;
-    private String googleMap;
+    private String googleMaps;
     private String statusKos;
     private String harga;
-    private PemilikKos pemilik;
+    private String kategori;
+    private PemilikKos idpemilik;
 
+     public Kos(String idkos,String namakos,String alamatkos,String fasilitas,String googlemaps,String statuskos,String harga,String kategori, PemilikKos idpemilik ){
+        this.idKos = idkos;
+        this.namaKos = namakos;
+        this.alamatKos = alamatkos;
+        this.Fasilitas = fasilitas;
+        this.googleMaps = googlemaps;
+        this.statusKos = statuskos;
+        this.harga = harga;
+        this.idpemilik = idpemilik;
+        this.kategori = kategori;
+    }
     /**
      * @return the idKos
      */
@@ -74,20 +87,7 @@ public class Kos {
         this.Fasilitas = Fasilitas;
     }
 
-    /**
-     * @return the googleMap
-     */
-    public String getGoogleMap() {
-        return googleMap;
-    }
-
-    /**
-     * @param googleMap the googleMap to set
-     */
-    public void setGoogleMap(String googleMap) {
-        this.googleMap = googleMap;
-    }
-
+    
     /**
      * @return the statusKos
      */
@@ -105,16 +105,6 @@ public class Kos {
     /**
      * @return the pemilik
      */
-    public PemilikKos getPemilik() {
-        return pemilik;
-    }
-
-    /**
-     * @param pemilik the pemilik to set
-     */
-    public void setPemilik(PemilikKos pemilik) {
-        this.pemilik = pemilik;
-    }
 
     /**
      * @return the harga
@@ -129,6 +119,46 @@ public class Kos {
     public void setHarga(String harga) {
         this.harga = harga;
     }
-    
-    
+
+    /**
+     * @return the googleMaps
+     */
+    public String getGoogleMaps() {
+        return googleMaps;
+    }
+
+    /**
+     * @param googleMaps the googleMaps to set
+     */
+    public void setGoogleMaps(String googleMaps) {
+        this.googleMaps = googleMaps;
+    }
+
+    /**
+     * @return the kategori
+     */
+    public String getKategori() {
+        return kategori;
+    }
+
+    /**
+     * @param kategori the kategori to set
+     */
+    public void setKategori(String kategori) {
+        this.kategori = kategori;
+    }
+
+    /**
+     * @return the idpemilik
+     */
+    public PemilikKos getIdpemilik() {
+        return idpemilik;
+    }
+
+    /**
+     * @param idpemilik the idpemilik to set
+     */
+    public void setIdpemilik(PemilikKos idpemilik) {
+        this.idpemilik = idpemilik;
+    }
 }
