@@ -132,6 +132,33 @@ public class UserModel {
         ResultSet result = statement.executeQuery(query);
         return result;
     }
+    
+    public ResultSet deleteKos(String id) throws SQLException {
+        PreparedStatement statement = null;
+        String query = "delete from kos where idKos='"
+                + id + "';";
+        statement = connection.prepareStatement(query);
+        ResultSet result = statement.executeQuery(query);
+        return result;
+    }
+    
+     public ResultSet searchPemilikKosID(String id) throws SQLException {
+        PreparedStatement statement = null;
+        String query = "select * from pemilikKos where idPemilik='"
+                + id + "';";
+        statement = connection.prepareStatement(query);
+        ResultSet result = statement.executeQuery(query);
+        return result;
+    }
+     
+     public ResultSet searchNamaKos(String namaKos) throws SQLException {
+        PreparedStatement statement = null;
+        String query = "select * from kos where namaKos='"
+                + namaKos + "';";
+        statement = connection.prepareStatement(query);
+        ResultSet result = statement.executeQuery(query);
+        return result;
+    }
 
     public String getKodePemilikBaru() throws SQLException {
         ResultSet rset = null;
@@ -172,5 +199,37 @@ public class UserModel {
             }
         }
         return pk;
+    }
+    
+//     public ResultSet OtomatisIdPemilik() throws SQLException {
+//        PreparedStatement statement = null;
+//        String query = "select idPemilik from pemilikKos";
+////        String query = "select * from petugas where username like '" + userName + "'";
+//        statement = connection.prepareStatement(query);
+//        ResultSet result = statement.executeQuery(query);
+//        return result;
+//    }
+     
+     public void UpdateKos(String idKos, String idPemilik, String namaKos, String alamatKos, String fasilitas, String googleMaps, String statusKos, String kategori, String harga) {
+        try {
+            PreparedStatement statement = null;
+
+            String query = "update kos set namaKos='" + namaKos + "', alamatKos='"
+                    + alamatKos + "', fasilitas='" + fasilitas + "', googleMaps='"
+                    + googleMaps + "', statusKos='" + statusKos + "', kategori='"
+                    + kategori + "', harga='" + harga + "' where idKos='" + idKos + "'";
+            statement = connection.prepareStatement(query);
+            statement.executeUpdate(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(UserModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     
+     public ResultSet tampilSemuaKos() throws SQLException {
+        PreparedStatement statement = null;
+        String query = "select * from kos";
+        statement = connection.prepareStatement(query);
+        ResultSet result = statement.executeQuery(query);
+        return result;
     }
 }

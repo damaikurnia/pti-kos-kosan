@@ -43,7 +43,7 @@
                                 <a href="kos_pemilik.jsp">Kos</a>
                             </li>
                             <li>
-                                <a href="insertkos_pemilik.jsp">Tambah Kos</a>
+                                <a href="insertkos_pemilik.jsp?idpemilik=<%out.println(request.getParameter("idpemilik"));%>">Tambah Kos</a>
                             </li>
                             <li>
                                 <a href="#">Update Kos</a>
@@ -77,11 +77,8 @@
                         try {
 
 
-                            String id = (String) session.getAttribute("id");
-
-
+                            String id =request.getParameter("idpemilik");
                             bean.UserModel PB = new bean.UserModel();
-
                             ResultSet result = PB.searchKosID(id);
                             while (result.next()) {%>
 
@@ -131,13 +128,14 @@
                                     </td>
                                 </tr>
 
-                              
+                            
                                 <tr>
                                     <td width="118px" align="left">
                                         Google Map
                                     </td>
                                     <td align="left">
-                                        <br />View with google map<a href="<% out.println(result.getString("googleMaps"));%>" style="color:#0000FF;text-align:left">Kampus III Paingan</a> in a larger map</small>
+                                        <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<% out.println(result.getString("googleMaps"));%>"></iframe><br />
+                                        View with google map<a href="<% out.println(result.getString("googleMaps"));%>" style="color:#0000FF;text-align:left">Kampus III Paingan</a> in a larger map</small>
                                     </td>
                                 </tr>
                                 <tr>
