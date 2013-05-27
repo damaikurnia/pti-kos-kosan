@@ -84,7 +84,7 @@
 					</div>
 					<div id="content">
 						Apa yang akan Anda lakukan?
-						<br><a href="insertkos_pemilik.jsp">Insert Kos</a>
+                                                <br><a href="insertkos_pemilik.jsp?idpemilik=<%out.println(request.getParameter("idpemilik"));%>">Insert Kos</a>
 						<br><a href="#">Update Kos</a>
 						<br><a href="deletekos_pemilik.jsp">Delete Kos</a>
 

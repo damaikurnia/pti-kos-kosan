@@ -4,6 +4,7 @@
     Author     : wieranata
 --%>
 
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
@@ -29,7 +30,7 @@
                     <div align="right">
                         <form action="#" method="post">
 
-                            <a href="#">Logout</a>
+                            <a href="index.jsp">Logout</a>
 
                         </form>
                     </div>
@@ -42,7 +43,7 @@
                                 <a href="insertkos_pemilik.jsp">Tambah Kos</a>
                             </li>
                             <li>
-                                <a href="#">Update Kos</a>
+                                <a href="updatekos_pemilik">Update Kos</a>
                             </li>
                             <li class="last">
                                 <a href="deletekos_pemilik.jsp">Delete Kos</a>
@@ -68,7 +69,13 @@
                             </li>
                         </ul>
 
-                    </div>
+                    </div>                 
+                        <%
+                        try {
+                            String idPemilik = request.getParameter("idpemilik");
+                            bean.UserModel PB = new bean.UserModel();
+                            ResultSet result = PB.searchPemilikKosID(idPemilik);
+                            while (result.next()) {%>     
                     <div id="content">
                         <form  action="insertkos">
                             <table width="900px">
@@ -95,12 +102,14 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                   
                                     <td width="118px" align="left">
                                         ID pemilik
                                     </td>
-                                    <td align="left">
-                                        <input class="text" name="idpemilik" size="5" maxlength="90" /><br>
-                                    </td>
+                                    <td>
+                                                <input readonly class="text" name="idPemilik" value="<% out.println(result.getString(1));%>" size="30"></input>
+                                              
+                                            </td>
                                 </tr>
 
                                 <tr>
@@ -177,6 +186,13 @@
                                     </td>
                                 </tr>
                             </table>
+                              
+                            <%;}
+
+                                                            }catch (Exception ex) {
+                                    out.println("message: " + ex.getMessage());
+                                }
+                            %>
                         </form>
 
                     </div>    

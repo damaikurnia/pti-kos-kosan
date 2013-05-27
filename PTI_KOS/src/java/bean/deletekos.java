@@ -10,13 +10,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author wieranata
  */
-public class LoginServlet extends HttpServlet {
+public class deletekos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -31,33 +30,13 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String idpemilik = request.getParameter("idpemilik");
-        String password = request.getParameter("password");
-
-        UserModel Model = new UserModel();
-//        Admin user = Model.getUser(userName, password);
-        PemilikKos pk = Model.getPemilikKos(idpemilik, password);
-//        if (user.getUsername() != null) {
-//
-//            out.println("Login Berhasil, Anda Login sebagai " + user.getUsername());
-//            HttpSession session = request.getSession(true);
-//            session.setAttribute("username", user.getUsername());
-//            session.setAttribute("user", user);
-//            response.sendRedirect("homePetugas.jsp");
-            //            RequestDispatcher rdp = request.getRequestDispatcher("home");
-//            rdp.forward(request, response);
-        if (pk.getIdPemilik()!= null) {
-           
-            HttpSession session = request.getSession(true);
-            session.setAttribute("idpemilik", pk.getIdPemilik());
-//            session.setAttribute("user", ds);
-            response.sendRedirect("pemilik.jsp?idpemilik="+pk.getIdPemilik()+"");
-            //            RequestDispatcher rdp = request.getRequestDispatcher("home");
-//            rdp.forward(request, response);
-        } else {
-            response.sendRedirect("index.jsp?error=yes");
-
-        }
+        PrintWriter out = response.getWriter();
+        String idkos = request.getParameter("idkos");
+      
+        bean.UserModel PB = new bean.UserModel();
+        PB.deleteKos(idkos);
+        response.sendRedirect("update_delete_pemilik.jsp");
+    }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

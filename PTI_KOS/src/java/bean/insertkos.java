@@ -36,7 +36,7 @@ public class insertkos extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String IdKos = request.getParameter("idkos");
-        String IdPemilik = request.getParameter("idpemilik");
+        String IdPemilik = request.getParameter("idPemilik");
         String NamaKos = request.getParameter("namakos");
 //        System.out.println(tgl);
         String AlamatKos = request.getParameter("alamatkos");
@@ -55,7 +55,7 @@ public class insertkos extends HttpServlet {
             PB.insertKos(k);
             HttpSession h=request.getSession(true);
             h.setAttribute("id",k.getIdKos());
-            response.sendRedirect("kos_pemilik.jsp");
+            response.sendRedirect("kos_pemilik.jsp?idpemilik="+IdPemilik+"");
         } catch (SQLException ex) {
             Logger.getLogger(insertkos.class.getName()).log(Level.SEVERE, null, ex);
         }
