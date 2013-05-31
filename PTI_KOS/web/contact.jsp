@@ -96,21 +96,16 @@
 					</div>
 					<div id="content">
 						<div id="box1">
-							<h2>
-                                                            <strong>Alamat kami</strong>
-							</h2>
+							
 							<p>
-								Prodi Teknik Informatika USD
-
-                                                                Kampus III Universitas Sanata Dharma,
-
-                                                                Paingan, Maguwoharjo, Depok, Yogyakarta
-
-                                                                Telp: 0274-883037, 883968 ext : 2341, 2320
-
-                                                                Fax: 0274-886529
-
-                                                                Email: fst@usd.ac.id
+                                                            <strong>Siskosmaw</strong><br>
+                                                            Kampus III Universitas Sanata Dharma,<br>
+                                                            Paingan, Maguwoharjo, Depok, Yogyakarta<br>
+                                                            Telp: 0274-883037, 883968 ext : 2341, 2320<br>
+                                                            Fax: 0274-886529<br>
+                                                            Email: fst@usd.ac.id<br>
+                                                            
+                                      
 							</p>
 						
 						<br class="clear" />
