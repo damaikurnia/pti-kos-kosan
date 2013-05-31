@@ -53,7 +53,7 @@
                                         </div>
 					<div id="nav">
 						<ul>
-							<li class="first active">
+							<li>
 								<a href="index.jsp">Home</a>
 							</li>
 							<li>
@@ -62,7 +62,7 @@
 							<li>
 								<a href="about.jsp">About</a>
 							</li>
-							<li class="last">
+							<li class="first active">
 								<a href="contact.jsp">Contact</a>
 							</li>
 							<li align="right">
