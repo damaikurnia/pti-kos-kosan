@@ -26,7 +26,7 @@
         <meta name="keywords" content="" />
         <meta name="description" content="" />
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>Contact</title>
+		<title>About</title>
 
 		<link rel="stylesheet" type="text/css" href="style.css" />
                 <script type="text/javascript" src="jquery/jquery-1.4.2.min.js"></script>
@@ -53,13 +53,13 @@
                                         </div>
 					<div id="nav">
 						<ul>
-							<li class="first active">
+							<li>
 								<a href="index.jsp">Home</a>
 							</li>
 							<li>
 								<a href="daftarkos.jsp">Daftar Kost</a>
 							</li>
-							<li>
+							<li class="first active">
 								<a href="about.jsp">About</a>
 							</li>
 							<li class="last">

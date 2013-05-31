@@ -56,10 +56,10 @@
 								<a href="daftarkos.jsp">Daftar Kos</a>
 							</li>
 							<li>
-								<a href="#">About</a>
+								<a href="about.jsp">About</a>
 							</li>
 							<li class="last">
-								<a href="#">Contact</a>
+								<a href="contact.jsp">Contact</a>
 							</li>
 							<li align="right">
 							<div>
