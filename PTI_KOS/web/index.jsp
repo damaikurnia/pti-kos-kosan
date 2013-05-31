@@ -67,8 +67,17 @@
 							</li>
 							<li align="right">
 							<div>
-								<form action="" method="post">
+								<form action="" method="post"> 
+                                                                    
 									<input class="text" name="search" size="32" maxlength="64" /><input class="button" type="submit" value="Search" />
+                                                                        <%
+                                                                            String text = request.getParameter("search");
+                                                                            if(!((text) == null))
+                                                                            {
+                                                                                String url = "http://localhost:8084/daftarkos.jsp"+text;
+                                                                                    response.sendRedirect(url);
+                                                                            }
+                                                                              %>
 								</form>
 							</div>
 							</li>
