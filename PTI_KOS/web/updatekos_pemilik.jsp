@@ -43,7 +43,7 @@
                                 <a href="insertkos_pemilik.jsp">Tambah Kos</a>
                             </li>
                             <li>
-                                <a href="#">Update Kos</a>
+                                <a href="updatekos_pemilik.jsp">Update Kos</a>
                             </li>
                             <li class="last">
                                 <a href="deletekos_pemilik.jsp">Delete Kos</a>
