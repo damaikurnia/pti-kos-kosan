@@ -40,7 +40,7 @@
                                 <a href="pemilik.jsp">Home Pemilik</a>
                             </li>
                             <li class="first active">
-                                <a href="insertkos_pemilik.jsp">Tambah Kos</a>
+                                <a href="insertkos_pemilik.jsp">Insert Kos</a>
                             </li>
                             <li>
                                 <a href="updatekos_pemilik">Update Kos</a>
