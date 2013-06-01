@@ -232,4 +232,33 @@ public class UserModel {
         ResultSet result = statement.executeQuery(query);
         return result;
     }
+     
+     public void insertIsiSMS(SMS pk) throws SQLException {
+        PreparedStatement stmt = null;
+        try {
+            connection.setAutoCommit(false);
+            String query = "insert into SMS values (?,?)";
+            stmt = connection.prepareStatement(query);
+            stmt.setString(1, pk.getIdSMS());
+            stmt.setString(2, pk.getIsiPesan());
+            stmt.executeUpdate();
+            connection.commit();
+        } catch (SQLException se) {
+            connection.rollback();
+            throw se;
+        } finally {
+            try {
+                connection.setAutoCommit(true);
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (Exception e) {
+                try {
+                    throw e;
+                } catch (Exception ex) {
+                    Logger.getLogger(UserModel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }
 }
