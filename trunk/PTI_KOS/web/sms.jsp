@@ -86,7 +86,7 @@
 
 					</div>
 					<div id="content">
-
+                                                <%out.println(request.getParameter("nomor"));%> Sudah Tersimpan
 						<input type="checkbox" name="for" value="all" /> all<br>
 						<input type="checkbox" name="for" value="sebagian" checked="checked" /> kirim ke beberapa<br>
 						<strong>Nomor</strong><br>
