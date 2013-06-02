@@ -39,21 +39,22 @@ public class InsertSMS extends HttpServlet {
         String isiSMS = request.getParameter("isiSMS");
         
 
-        SMS s=new SMS();
-        s.setIdSMS(nomor);
-        s.setIsiPesan(isiSMS);
-        bean.UserModel PB = new bean.UserModel();
-        try {
-            PB.insertIsiSMS(s);
-            HttpSession h=request.getSession(true);
-            h.setAttribute("id",s.getIdSMS());
-            response.sendRedirect("sms.jsp?nomor="+s.getIdSMS()+"");
-        } catch (SQLException ex) {
-            Logger.getLogger(InsertSMS.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+            SMS s = new SMS();
+            s.setIdSMS(nomor);
+            s.setIsiPesan(isiSMS);
+            bean.UserModel PB = new bean.UserModel();
+            try {
+                PB.insertIsiSMS(s);
+                HttpSession h = request.getSession(true);
+                h.setAttribute("id", s.getIdSMS());
+                response.sendRedirect("sms.jsp?nomor=" + s.getIdSMS() + "");
+            } catch (SQLException ex) {
+                Logger.getLogger(InsertSMS.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+
     /**
      * Handles the HTTP
      * <code>GET</code> method.

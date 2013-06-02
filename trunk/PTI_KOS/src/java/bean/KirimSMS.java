@@ -7,6 +7,7 @@ package bean;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -38,15 +39,36 @@ public class KirimSMS extends HttpServlet {
         String nomor = request.getParameter("idSMS");
         bean.UserModel UM = new UserModel();
         String isiSMS = UM.TampilIsiSMS(nomor);
-        
-        bean.UserModel PB = new bean.UserModel("sms");
-        try {
-            PB.KirimSMS(isiSMS);
-            HttpSession h=request.getSession(true);
-            h.setAttribute("id",nomor);
-            response.sendRedirect("sms.jsp?nomor="+nomor+"");
-        } catch (SQLException ex) {
-            Logger.getLogger(InsertSMS.class.getName()).log(Level.SEVERE, null, ex);
+        String jawaban = request.getParameter("for");
+        System.out.println(jawaban);
+
+        if (jawaban.equals("all")) {
+            bean.UserModel um1 = new bean.UserModel();
+            List<String> tangkepISI = um1.TampilNomor();
+            int kuota = tangkepISI.size();
+            int a = 0;
+            while (a < kuota) {
+                bean.UserModel PB = new bean.UserModel("sms");
+                try {
+                    PB.KirimSMS(tangkepISI.get(a),isiSMS);
+                    HttpSession h = request.getSession(true);
+                    h.setAttribute("id", nomor);
+                } catch (SQLException ex) {
+                    Logger.getLogger(InsertSMS.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                a++;
+            }
+            response.sendRedirect("sms.jsp?nomor=" + nomor + "");
+        } else {
+//            bean.UserModel PB = new bean.UserModel("sms");
+//            try {
+//                PB.KirimSMS(isiSMS);
+//                HttpSession h = request.getSession(true);
+//                h.setAttribute("id", nomor);
+//                response.sendRedirect("sms.jsp?nomor=" + nomor + "");
+//            } catch (SQLException ex) {
+//                Logger.getLogger(InsertSMS.class.getName()).log(Level.SEVERE, null, ex);
+//            }
         }
     }
 

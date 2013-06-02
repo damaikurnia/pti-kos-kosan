@@ -278,7 +278,7 @@ public class UserModel {
         return tangkepISI;
     }
 
-    public void KirimSMS(String isisms) throws SQLException {
+    public void KirimSMS(String nomor,String isisms) throws SQLException {
         PreparedStatement stmt = null;
         try {
             connection.setAutoCommit(false);
@@ -287,7 +287,7 @@ public class UserModel {
                     + "VALUES(?,?,?,NOW(),-1,'',?,?);";
             stmt = connection.prepareStatement(query);
             stmt.setString(1, "-1");
-            stmt.setString(2, "+6281911098981");
+            stmt.setString(2, nomor);
             stmt.setString(3, isisms);
             stmt.setString(4, "no");
             stmt.setString(5, "gammu");
@@ -309,6 +309,30 @@ public class UserModel {
                     Logger.getLogger(UserModel.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+        }
+    }
+
+    public List<String> TampilNomor() throws SQLException {
+        ResultSet rset = null;
+        String sql = "select noTelp from pemilikkos";
+        Statement stat = connection.createStatement();
+        List<String> tangkepISI = new ArrayList<String>();
+        rset = stat.executeQuery(sql);
+        while (rset.next()) {
+            tangkepISI.add((String) rset.getString(1));
+        }
+        connection.close();
+        return tangkepISI;
+    }
+
+    public static void main(String[] args) throws SQLException {
+        UserModel um = new UserModel();
+        List<String> tangkepISI = um.TampilNomor();
+        int kuota = tangkepISI.size();
+        int a = 0;
+        while (a < kuota) {
+            System.out.println(tangkepISI.get(a));
+            a++;
         }
     }
 }

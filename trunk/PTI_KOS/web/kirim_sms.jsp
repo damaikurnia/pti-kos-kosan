@@ -73,8 +73,8 @@
 					<div id="content">
                                             <form  action="KirimSMS">
                                                 Kirim SMS<br>
-						<input type="checkbox" name="for" value="all" /> all<br>
-						<input type="checkbox" name="for" value="sebagian" checked="checked" /> kirim ke beberapa<br>
+                                                <input type="radio" name="for" value="all" checked="checked"/> Kirim ke semua<br>
+						<input type="radio" name="for" value="sebagian" /> kirim ke beberapa<br>
 						<strong>Kode SMS</strong><br>
 						<input type="text" name="idSMS" size="32" maxlength="32" /><br><br><br>
 						<textarea name="desripsi" id="des" cols="50%" rows="8" class="af"></textarea><br>
