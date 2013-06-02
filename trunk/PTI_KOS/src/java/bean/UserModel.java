@@ -326,13 +326,13 @@ public class UserModel {
     }
 
     public static void main(String[] args) throws SQLException {
-        UserModel um = new UserModel();
-        List<String> tangkepISI = um.TampilNomor();
-        int kuota = tangkepISI.size();
-        int a = 0;
-        while (a < kuota) {
-            System.out.println(tangkepISI.get(a));
-            a++;
-        }
+//        UserModel um = new UserModel();
+//        List<String> tangkepISI = um.TampilNomor();
+//        int kuota = tangkepISI.size();
+//        int a = 0;
+//        while (a < kuota) {
+//            System.out.println(tangkepISI.get(a));
+//            a++;
+//        }
     }
 }

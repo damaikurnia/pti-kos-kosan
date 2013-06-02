@@ -67,6 +67,7 @@
 
                     </div>
                     <div id="content">
+                        <strong>Penambahan Pemilik Berhasil</strong>
                             <table width="900px">
                                 <tr>
                                     <td width="118px" align="left">
@@ -116,6 +117,10 @@
                                     <td align="left">
                                         <%
                                         String noTelp = request.getParameter("noTelp");
+                                        if(noTelp.substring(0, 1).equals("0")){
+                                            String a = noTelp.substring(1,12);
+                                            noTelp = "+62"+a;
+                                        }
                                         String password = request.getParameter("pw");
                                         out.print(noTelp);
                                         bean.UserModel um2 = new bean.UserModel();
