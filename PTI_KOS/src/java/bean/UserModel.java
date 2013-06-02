@@ -27,6 +27,10 @@ public class UserModel {
         connection = new DbUtility().getConnection();
     }
 
+    public UserModel(String sms) {
+        connection = new DbUtilitySMS().getConnection();
+    }
+
 //    public void insertKos(String IdKos, String IdPemilik, String NamaKos, String AlamatKos, String Fasilitas, String GoogleMaps, String Status, String Kategori, String Harga) {
 //        try {
 //            PreparedStatement statement = null;
@@ -132,7 +136,7 @@ public class UserModel {
         ResultSet result = statement.executeQuery(query);
         return result;
     }
-    
+
     public ResultSet deleteKos(String id) throws SQLException {
         PreparedStatement statement = null;
         String query = "delete from kos where idKos='"
@@ -141,8 +145,8 @@ public class UserModel {
         ResultSet result = statement.executeQuery(query);
         return result;
     }
-    
-     public ResultSet searchPemilikKosID(String id) throws SQLException {
+
+    public ResultSet searchPemilikKosID(String id) throws SQLException {
         PreparedStatement statement = null;
         String query = "select * from pemilikKos where idPemilik='"
                 + id + "';";
@@ -150,8 +154,8 @@ public class UserModel {
         ResultSet result = statement.executeQuery(query);
         return result;
     }
-     
-     public ResultSet searchNamaKos(String namaKos) throws SQLException {
+
+    public ResultSet searchNamaKos(String namaKos) throws SQLException {
         PreparedStatement statement = null;
         String query = "select * from kos where namaKos='"
                 + namaKos + "';";
@@ -200,7 +204,7 @@ public class UserModel {
         }
         return pk;
     }
-    
+
 //     public ResultSet OtomatisIdPemilik() throws SQLException {
 //        PreparedStatement statement = null;
 //        String query = "select idPemilik from pemilikKos";
@@ -209,8 +213,7 @@ public class UserModel {
 //        ResultSet result = statement.executeQuery(query);
 //        return result;
 //    }
-     
-     public void UpdateKos(String idKos, String idPemilik, String namaKos, String alamatKos, String fasilitas, String googleMaps, String statusKos, String kategori, String harga) {
+    public void UpdateKos(String idKos, String idPemilik, String namaKos, String alamatKos, String fasilitas, String googleMaps, String statusKos, String kategori, String harga) {
         try {
             PreparedStatement statement = null;
 
@@ -224,16 +227,16 @@ public class UserModel {
             Logger.getLogger(UserModel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-     
-     public ResultSet tampilSemuaKos() throws SQLException {
+
+    public ResultSet tampilSemuaKos() throws SQLException {
         PreparedStatement statement = null;
         String query = "select * from kos";
         statement = connection.prepareStatement(query);
         ResultSet result = statement.executeQuery(query);
         return result;
     }
-     
-     public void insertIsiSMS(SMS pk) throws SQLException {
+
+    public void insertIsiSMS(SMS pk) throws SQLException {
         PreparedStatement stmt = null;
         try {
             connection.setAutoCommit(false);
@@ -241,6 +244,53 @@ public class UserModel {
             stmt = connection.prepareStatement(query);
             stmt.setString(1, pk.getIdSMS());
             stmt.setString(2, pk.getIsiPesan());
+            stmt.executeUpdate();
+            connection.commit();
+        } catch (SQLException se) {
+            connection.rollback();
+            throw se;
+        } finally {
+            try {
+                connection.setAutoCommit(true);
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (Exception e) {
+                try {
+                    throw e;
+                } catch (Exception ex) {
+                    Logger.getLogger(UserModel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }
+
+    public String TampilIsiSMS(String pk) throws SQLException {
+        ResultSet rset = null;
+        String sql = "select IsiPesan from sms where idSMS = '" + pk + "'";
+        Statement stat = connection.createStatement();
+        String tangkepISI = null;
+        rset = stat.executeQuery(sql);
+        while (rset.next()) {
+            tangkepISI = rset.getString(1);
+        }
+        connection.close();
+        return tangkepISI;
+    }
+
+    public void KirimSMS(String isisms) throws SQLException {
+        PreparedStatement stmt = null;
+        try {
+            connection.setAutoCommit(false);
+            String query =
+                    "INSERT INTO outbox(Class,DestinationNumber,TextDecoded,SendingDateTime,RelativeValidity,SenderID,DeliveryReport,CreatorID) "
+                    + "VALUES(?,?,?,NOW(),-1,'',?,?);";
+            stmt = connection.prepareStatement(query);
+            stmt.setString(1, "-1");
+            stmt.setString(2, "+6281911098981");
+            stmt.setString(3, isisms);
+            stmt.setString(4, "no");
+            stmt.setString(5, "gammu");
             stmt.executeUpdate();
             connection.commit();
         } catch (SQLException se) {
