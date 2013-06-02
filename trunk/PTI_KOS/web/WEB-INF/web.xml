@@ -16,6 +16,10 @@
         <servlet-name>InsertSMS</servlet-name>
         <servlet-class>bean.InsertSMS</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>KirimSMS</servlet-name>
+        <servlet-class>bean.KirimSMS</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>InsertSMS</servlet-name>
         <url-pattern>/InsertSMS</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>KirimSMS</servlet-name>
+        <url-pattern>/KirimSMS</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

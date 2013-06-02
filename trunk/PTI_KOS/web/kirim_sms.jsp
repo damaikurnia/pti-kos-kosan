@@ -1,26 +1,11 @@
 <%-- 
-    Document   : sms
-    Created on : May 20, 2013, 1:58:56 PM
-    Author     : wieranata
+    Document   : kirim_sms
+    Created on : Jun 1, 2013, 7:30:17 PM
+    Author     : Mich
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-
-	Design by Free CSS Templates
-	http://www.freecsstemplates.org
-	Released for free under a Creative Commons Attribution License
-
-	Name       : Serious Face
-	Version    : 1.0
-	Released   : 20130222
-
--->
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta name="keywords" content="" />
@@ -86,7 +71,15 @@
 
 					</div>
 					<div id="content">
-                                                <%out.println(request.getParameter("nomor"));%> Sudah Tersimpan
+                                            <form  action="KirimSMS">
+                                                Kirim SMS<br>
+						<input type="checkbox" name="for" value="all" /> all<br>
+						<input type="checkbox" name="for" value="sebagian" checked="checked" /> kirim ke beberapa<br>
+						<strong>Kode SMS</strong><br>
+						<input type="text" name="idSMS" size="32" maxlength="32" /><br><br><br>
+						<textarea name="desripsi" id="des" cols="50%" rows="8" class="af"></textarea><br>
+						<input class="button" type="submit" value="Kirim" />
+                                                </form>
 					</div>
 					<br class="clear" />
 				</div>
@@ -97,4 +90,3 @@
 		</div>
     </body>
 </html>
-

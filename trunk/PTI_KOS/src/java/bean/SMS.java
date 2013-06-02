@@ -15,6 +15,14 @@ public class SMS {
     /**
      * @return the idSMS
      */
+    
+    public SMS(){}
+    
+    public SMS(String id, String isiSMS){
+        idSMS = id;
+        isiPesan = isiSMS;
+    }
+    
     public String getIdSMS() {
         return idSMS;
     }
