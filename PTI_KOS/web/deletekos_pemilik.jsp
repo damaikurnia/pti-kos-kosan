@@ -29,9 +29,9 @@
 					<div align="right">
 						<form action="#" method="post">
 
-							<a href="#">Logout</a>
+                                                 <a href="index.jsp">Logout</a>
 
-						</form>
+                                                </form>
 					</div>
 					<div id="nav">
 						<ul>

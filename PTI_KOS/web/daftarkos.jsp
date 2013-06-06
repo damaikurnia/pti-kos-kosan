@@ -40,10 +40,10 @@
 						</h1>
 					</div>
 					<div align="right">
-						<form action="" method="post">
-							Username<input class="text" name="username" size="32" maxlength="64" /><br>
-							Password<input type="password" name="pw" size="32" maxlength="64" /><br>
-							<a href="#">Daftar?</a>&nbsp&nbsp<input class="button" type="submit" value="Login" />
+						<form action="LoginServlet" method="post">
+							Username<input class="text" name="idpemilik" size="32" maxlength="64" /><br>
+							Password<input type="password" name="password" size="32" maxlength="64" /><br>
+							<a href="registrasi.jsp">Daftar?</a>&nbsp&nbsp<input class="button" type="submit" value="Login" />
 
 						</form>
 					</div>
